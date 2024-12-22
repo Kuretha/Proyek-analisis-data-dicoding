@@ -43,6 +43,7 @@ class HelperFunctions:
     def review_score_df(self):
         average_score = self.df['review_score'].mean()
         review_counts = self.df['review_score'].value_counts().sort_index()
+        review_counts = review_counts.reindex(range(1, 6), fill_value=0)
 
         return average_score, review_counts
 

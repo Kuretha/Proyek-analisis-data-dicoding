@@ -129,12 +129,12 @@ with col2:
 
 fig = plt.figure(figsize=(8, 6))
 
-sns.barplot(x=review_counts.index, y=review_counts.values, palette=["Blue" if score == review_counts.idxmax()
+sns.barplot(x=review_counts.index.astype(str), y=review_counts.values, palette=["Blue" if score == review_counts.idxmax()
  else "Gray" for score in review_counts.index])
 plt.title('Distribution of Review Scores')
 plt.xlabel('Review Score')
 plt.ylabel('Count')
-plt.xticks(range(1, 6))
+plt.xticks(range(len(review_counts.index)), review_counts.index)
 
 st.pyplot(fig)
 
